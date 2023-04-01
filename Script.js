@@ -35,19 +35,27 @@ function playground(playerChoice, computerChoice) {
         return "Its A draw!";
     }
 }
-function takePlayerChoice() {
-
-}
+let playerWinCount = 0;
+let computerWinCount = 0;
 const buttons = document.querySelectorAll("button");
-const playerChoice = buttons.forEach(button => {
+buttons.forEach(button => {
     button.addEventListener("click", event => {
-        const playerChoice = (event.target.innerText).toLowerCase();
-        PlayRockPaperScissor(playerChoice);
+        const pC = (event.target.innerText).toLowerCase();
+        const winner = PlayRockPaperScissor(pC);
+        if (winner === "player") {
+            playerWinCount++;
+            document.querySelector("#playerScore").innerText = `${playerWinCount}`;
+        }
+        else if (winner === "computer") {
+            computerWinCount++;
+            document.querySelector("#computerScore").innerText = `${computerWinCount}`;
+        }
     });
 });
 function PlayRockPaperScissor(playerChoice) {
 
     const computerChoice = getComputerChoice().toLowerCase();
     const result = (playground(playerChoice, computerChoice));
-    document.querySelector("#result").innerText = "this round result "+ result; 
+    document.querySelector("#result").innerText = result;
+    return result;
 }
