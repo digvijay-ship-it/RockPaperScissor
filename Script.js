@@ -35,15 +35,19 @@ function playground(playerChoice, computerChoice) {
         return "Its A draw!";
     }
 }
+function takePlayerChoice() {
 
-function PlayRockPaperScissor() {
-    const playerChoice = prompt("Enter one if'Rock','Paper' and 'Scissor'", "Rock").toLowerCase();
+}
+const buttons = document.querySelectorAll("button");
+const playerChoice = buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        const playerChoice = (event.target.innerText).toLowerCase();
+        PlayRockPaperScissor(playerChoice);
+    });
+});
+function PlayRockPaperScissor(playerChoice) {
+
     const computerChoice = getComputerChoice().toLowerCase();
-    console.log(playground(playerChoice, computerChoice));
+    const result = (playground(playerChoice, computerChoice));
+    document.querySelector("#result").innerText = "this round result "+ result; 
 }
-function main() {
-    // for(let i=0;i<5;i++){
-    PlayRockPaperScissor();
-    // }
-}
-main();
