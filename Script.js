@@ -35,9 +35,9 @@ function playground(playerChoice, computerChoice) {
         return "Its A draw!";
     }
 }
-function resetGame(){
-    playerWinCount=0;
-    computerWinCount=0;
+function resetGame() {
+    playerWinCount = 0;
+    computerWinCount = 0;
 }
 function declareWinner(winner) {
     //create element
