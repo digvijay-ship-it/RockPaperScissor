@@ -3,36 +3,38 @@ function getRandomNumber() {
 }
 function getComputerChoice() {
     let randomNumberForComputer = getRandomNumber();
-    return randomNumberForComputer === 0 ? "Rock" : randomNumberForComputer === 1 ? "Paper" : randomNumberForComputer === 2 ? "Scissor" : false;
+    return randomNumberForComputer === 0 ? "rock" : randomNumberForComputer === 1 ? "paper" : randomNumberForComputer === 2 ? "scissor" : false;
 }
 function playground(playerChoice, computerChoice) {
-
-    if (playerChoice === "rock" && computerChoice !== "rock") {
-        if (computerChoice === "scissor") {
-            return "player";
-        }
-        else {
-            return "computer";
-        }
-    }
-    else if (playerChoice === "paper" && computerChoice !== "paper") {
-        if (computerChoice === "rock") {
-            return "player";
-        }
-        else {
-            return "computer";
-        }
-    }
-    else if (playerChoice === "scissor" && computerChoice !== "scissor") {
-        if (computerChoice === "paper") {
-            return "player";
-        }
-        else {
-            return "computer";
-        }
-    }
-    else if (playerChoice === computerChoice) {
+     
+    if (playerChoice === computerChoice) {
         return "Its A draw!";
+    }
+    else {
+        if (playerChoice === "rock") {
+            if (computerChoice === "scissor") {
+                return "player";
+            }
+            else {
+                return "computer";
+            }
+        }
+        else if (playerChoice === "paper") {
+            if (computerChoice === "rock") {
+                return "player";
+            }
+            else {
+                return "computer";
+            }
+        }
+        else if (playerChoice === "scissor") {
+            if (computerChoice === "paper") {
+                return "player";
+            }
+            else {
+                return "computer";
+            }
+        }
     }
 }
 function resetGame() {
@@ -75,7 +77,7 @@ buttons.forEach(button => {
 });
 function PlayRockPaperScissor(playerChoice) {
 
-    const computerChoice = getComputerChoice().toLowerCase();
+    const computerChoice = getComputerChoice();
     const result = (playground(playerChoice, computerChoice));
     document.querySelector("#result").innerText = result;
     return result;
