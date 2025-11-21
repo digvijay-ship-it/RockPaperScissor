@@ -40,14 +40,12 @@ function playground(playerChoice, computerChoice) {
 function resetGame() {
     playerWinCount = 0;
     computerWinCount = 0;
+    document.getElementById("Winner").innerHTML = "";
+    document.getElementById("playerScore").innerHTML = "Player score: 0";
+    document.getElementById("computerScore").innerHTML = "Computer score: 0";
+    alert("Game reset! Start a new game.");
 }
-function declareWinner(winner) {
-    //create element
-    const contestWinner = document.createElement("h1");
-    contestWinner.innerText = "Winner of this contest is " + winner;
-    //insert it as #contestWinner div's child
-    document.querySelector("#Winner").appendChild(contestWinner);
-}
+
 let playerWinCount = 0;
 let computerWinCount = 0;
 
@@ -61,17 +59,19 @@ buttons.forEach(button => {
             playerWinCount++;
             document.querySelector("#playerScore").innerText = `Player score: ${playerWinCount}`;
         }
-        else if (winner === "computer") {
+        else  {
             computerWinCount++;
             document.querySelector("#computerScore").innerText = `Computer score: ${computerWinCount}`;
         }
         if (playerWinCount === 5) {
-            declareWinner("player");
+            alert("Player has won the game!");
             resetGame();
+            return;
         }
         if (computerWinCount === 5) {
-            declareWinner("computer");
+            alert("computer has won the game!");
             resetGame();
+            return;
         }
     });
 });
