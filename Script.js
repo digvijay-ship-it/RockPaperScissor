@@ -52,8 +52,8 @@ let computerWinCount = 0;
 const buttons = document.querySelectorAll("button");
 buttons.forEach(button => {
     button.addEventListener("click", event => {
-        const pC = (event.target.innerText).toLowerCase();
-        const winner = PlayRockPaperScissor(pC);
+        const playerChoice = (event.target.innerText).toLowerCase();
+        const winner = PlayRockPaperScissor(playerChoice);
 
         if (winner === "player") {
             playerWinCount++;
